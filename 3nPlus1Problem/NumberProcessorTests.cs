@@ -10,43 +10,7 @@ namespace _3nPlus1Problem
     [TestClass]
     public class NumberProcessorTests
     {
-        private readonly NumberProcessor _numberProcessor = new NumberProcessor();
-        
-        //[TestMethod]
-        //public void MinValue()
-        //{
-        //    Assert.AreEqual(1, _numberProcessor.ProcessNumber(1));
-        //}
-
-        //[TestMethod]
-        //public void Value2()
-        //{
-        //    Assert.AreEqual(2, _numberProcessor.ProcessNumber(2));
-        //}
-
-        //[TestMethod]
-        //public void Value3()
-        //{
-        //    Assert.AreEqual(8, _numberProcessor.ProcessNumber(3));
-        //}
-
-        //[TestMethod]
-        //public void Value22()
-        //{
-        //    Assert.AreEqual(16, _numberProcessor.ProcessNumber(22));
-        //}
-
-        //[TestMethod]
-        //public void TestSet1_2()
-        //{
-        //    Assert.AreEqual(1, _numberProcessor.CalculateCycleLength(1, 2));
-        //}
-
-        //[TestMethod]
-        //public void TestSet1_3()
-        //{
-        //    Assert.AreEqual(8, _numberProcessor.CalculateCycleLength(1, 3));
-        //}
+        private readonly NumberProcessor _numberProcessor = new NumberProcessor();                
 
         [TestMethod]
         public void TestSet1_10()

@@ -8,3 +8,6 @@ Solutions for programming questions from Stanford's Algorithms: Design and Analy
 - Min cut problem: task is to code up and run the randomized contraction algorithm for the min cut problem and use it on the above graph to compute the min cut
 - Compute strongly connected components problem: task is to code up the Kosaraju's algorithm for computing strongly connected components (SCCs), and to run this algorithm on the given graph
 - Min path problem: task is to run Dijkstra's shortest-path algorithm on this graph, using 1 (the first vertex) as the source vertex, and to compute the shortest-path distances between 1 and every other vertex of the graph. If there is no path between a vertex v and vertex 1, we'll define the shortest-path distance between 1 and v to be 1000000
+
+Optional:
+- Calculate number of cylces for all numbers within interval (n,m) using rules from famous 3n+1 problem (http://en.wikipedia.org/wiki/Collatz_conjecture#Program_to_calculate_Hailstone_sequences)
