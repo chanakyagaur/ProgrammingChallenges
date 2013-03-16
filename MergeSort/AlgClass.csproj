@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MedianMaintenenceAlg.cs" />
+    <Compile Include="MedianMaintenenceAlgTests.cs" />
     <Compile Include="TwoSumAlg.cs" />
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="EnumerableExtensions.cs" />
