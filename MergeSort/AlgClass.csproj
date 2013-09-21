@@ -46,10 +46,12 @@
   <ItemGroup>
     <Compile Include="GreedyAlgs\DecreaseRatioScheduler.cs" />
     <Compile Include="GreedyAlgs\Job.cs" />
+    <Compile Include="GreedyAlgs\MaxSpaceClustering.cs" />
     <Compile Include="GreedyAlgs\OrderSchedulerBase.cs" />
     <Compile Include="GreedyAlgs\PrimMST.cs" />
     <Compile Include="MedianMaintenenceAlg.cs" />
     <Compile Include="Tests\DecreaseRatioSchedulerTests.cs" />
+    <Compile Include="Tests\MaxSpaceClusteringTests.cs" />
     <Compile Include="Tests\MedianMaintenenceAlgTests.cs" />
     <Compile Include="GreedyAlgs\DecreaseOrderScheduler.cs" />
     <Compile Include="Tests\DecreaseOrderSchedulerTests.cs" />

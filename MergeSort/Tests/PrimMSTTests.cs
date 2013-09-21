@@ -17,7 +17,7 @@ namespace AlgClass.Tests
         {
             var vertices = new ExtendedVertex[]
                 {
-                    new ExtendedVertex(1, new AdjacentEdge[]
+                     new ExtendedVertex(1, new AdjacentEdge[]
                         {
                             new AdjacentEdge(2,1), 
                             new AdjacentEdge(3,3), 
@@ -37,7 +37,7 @@ namespace AlgClass.Tests
                     {
                         new AdjacentEdge(1,4), 
                         new AdjacentEdge(3,5), 
-                    }), 
+                    }),                     
                 };
 
             var primAlg = new PrimMST();

@@ -26,6 +26,11 @@ namespace GreedyConsole
                 {
                     PrimMST(args[1]);
                 }
+
+                if (string.Equals(alg, "clustering", StringComparison.OrdinalIgnoreCase))
+                {
+                    MaxSpaceClustering(args[1]);
+                }
             }
 
             Console.WriteLine("press any key");
@@ -51,6 +56,27 @@ namespace GreedyConsole
             var primAlg = new PrimMST();
 
             Console.WriteLine("Prim MST lenght: {0}", primAlg.CalcMSTLength(vertices));
+        }
+
+        private static void MaxSpaceClustering(string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+            int verticesCount = int.Parse(lines[0].Split(' ').First());
+            var vertices = Enumerable.Range(1, verticesCount).Select(x => new ExtendedVertex((uint)x)).ToArray();
+
+            foreach (var line in lines.Skip(1))
+            {
+                var node = line.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var left = uint.Parse(node[0]);
+                var right = uint.Parse(node[1]);
+                var weight = int.Parse(node[2]);
+                vertices[left - 1].AddAdjacenEdge(new AdjacentEdge(right, weight));
+                vertices[right - 1].AddAdjacenEdge(new AdjacentEdge(left, weight));
+            }
+
+            var maxSpaceClustering = new MaxSpaceClustering();
+
+            Console.WriteLine("maximum spacing of a 4-clustering: {0}", maxSpaceClustering.CalcMaxSpacing(vertices, 4));
         }
 
         private static void ScheduleProblem(string fileName)

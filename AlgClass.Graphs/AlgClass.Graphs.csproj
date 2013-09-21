@@ -42,6 +42,7 @@
     <Compile Include="AdjacentEdge.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnionFind.cs" />
     <Compile Include="Vertex.cs" />
     <Compile Include="VertexExtended.cs" />
   </ItemGroup>
