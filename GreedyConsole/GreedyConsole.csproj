@@ -48,6 +48,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AlgClass.Graphs\AlgClass.Graphs.csproj">
+      <Project>{0AD5EA00-5D3B-407A-B848-42C153E93770}</Project>
+      <Name>AlgClass.Graphs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MergeSort\AlgClass.csproj">
       <Project>{372ce390-93e0-4182-89fa-fbd11766793f}</Project>
       <Name>AlgClass</Name>

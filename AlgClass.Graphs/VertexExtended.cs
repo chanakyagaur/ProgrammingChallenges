@@ -10,15 +10,25 @@ namespace AlgClass.Graphs
 {
     public class ExtendedVertex: Vertex
     {
-        private readonly AdjacentEdge[] _adjacentVertices;
+        private readonly List<AdjacentEdge> _adjacentVertices;
 
-        public ExtendedVertex(uint id, AdjacentEdge[] adjacentVertices)
+        public ExtendedVertex(uint id, IEnumerable<AdjacentEdge> adjacentVertices)
             : base(id, null)
         {
-            _adjacentVertices = adjacentVertices;
+            _adjacentVertices = adjacentVertices.ToList();
         }
 
-        public new AdjacentEdge[] AdjacentVertices
+        public ExtendedVertex(uint id):base(id, null)
+        {  
+            _adjacentVertices = new List<AdjacentEdge>();
+        }
+
+        public void AddAdjacenEdge(AdjacentEdge edge)
+        {
+            _adjacentVertices.Add(edge);
+        }
+
+        public new IEnumerable<AdjacentEdge> AdjacentVertices
         {
             get { return _adjacentVertices; }
         }
