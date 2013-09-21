@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlgClass;
+using AlgClass.Graphs;
 
 namespace MinPathConsole
 {
@@ -22,10 +23,10 @@ namespace MinPathConsole
                                .Select(nodeArray =>
                                    {
                                        uint nodeId = uint.Parse(nodeArray[0]);
-                                       var adjacentList = new List<AdjacentVertexInfo>();
+                                       var adjacentList = new List<AdjacentEdge>();
                                        for (int i = 1; i < nodeArray.Length; i +=2)
                                        {
-                                           adjacentList.Add(new AdjacentVertexInfo(uint.Parse(nodeArray[i]), uint.Parse(nodeArray[i+1])));
+                                           adjacentList.Add(new AdjacentEdge(uint.Parse(nodeArray[i]), int.Parse(nodeArray[i+1])));
                                        }
                                        return new ExtendedVertex(nodeId, adjacentList.ToArray());
                                    })            

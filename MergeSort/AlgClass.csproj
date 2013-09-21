@@ -47,11 +47,13 @@
     <Compile Include="GreedyAlgs\DecreaseRatioScheduler.cs" />
     <Compile Include="GreedyAlgs\Job.cs" />
     <Compile Include="GreedyAlgs\OrderSchedulerBase.cs" />
+    <Compile Include="GreedyAlgs\PrimMST.cs" />
     <Compile Include="MedianMaintenenceAlg.cs" />
     <Compile Include="Tests\DecreaseRatioSchedulerTests.cs" />
     <Compile Include="Tests\MedianMaintenenceAlgTests.cs" />
     <Compile Include="GreedyAlgs\DecreaseOrderScheduler.cs" />
     <Compile Include="Tests\DecreaseOrderSchedulerTests.cs" />
+    <Compile Include="Tests\PrimMSTTests.cs" />
     <Compile Include="TwoSumAlg.cs" />
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="EnumerableExtensions.cs" />
@@ -65,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlgClass.Graphs\AlgClass.Graphs.csproj">
+      <Project>{0ad5ea00-5d3b-407a-b848-42c153e93770}</Project>
+      <Name>AlgClass.Graphs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

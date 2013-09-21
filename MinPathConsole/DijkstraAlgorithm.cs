@@ -31,13 +31,13 @@ namespace MinPathConsole
                 {
                     foreach (var adjacentNodeInfo in processedNode.AdjacentVertices)
                     {
-                        var adjacentNode = _vertices[adjacentNodeInfo.Id - 1];
+                        var adjacentNode = _vertices[adjacentNodeInfo.Vertex - 1];
                         if (!_processedVertices.Contains(adjacentNode))
                         {
                             if (minPath > _minPath[processedNode.Id - 1] + adjacentNodeInfo.Weigth)
                             {
-                                minPath = _minPath[processedNode.Id - 1] + adjacentNodeInfo.Weigth;
-                                nextSelectedNode = _vertices[adjacentNodeInfo.Id - 1];
+                                minPath = _minPath[processedNode.Id - 1] + (uint)adjacentNodeInfo.Weigth;
+                                nextSelectedNode = _vertices[adjacentNodeInfo.Vertex - 1];
                             }
                         }
                     }

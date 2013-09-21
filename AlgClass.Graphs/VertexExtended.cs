@@ -6,19 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using AlgClass.Graphs;
 
-namespace MinPathConsole
+namespace AlgClass.Graphs
 {
-    class ExtendedVertex: Vertex
+    public class ExtendedVertex: Vertex
     {
-        private readonly AdjacentVertexInfo[] _adjacentVertices;
+        private readonly AdjacentEdge[] _adjacentVertices;
 
-        public ExtendedVertex(uint id, AdjacentVertexInfo[] adjacentVertices)
+        public ExtendedVertex(uint id, AdjacentEdge[] adjacentVertices)
             : base(id, null)
         {
             _adjacentVertices = adjacentVertices;
         }
 
-        public new AdjacentVertexInfo[] AdjacentVertices
+        public new AdjacentEdge[] AdjacentVertices
         {
             get { return _adjacentVertices; }
         }

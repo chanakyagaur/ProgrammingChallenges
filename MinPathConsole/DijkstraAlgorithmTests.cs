@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlgClass.Graphs;
 using NUnit.Framework;
 
 namespace MinPathConsole
@@ -15,26 +16,26 @@ namespace MinPathConsole
         {
             var vertices = new ExtendedVertex[]
                 {
-                    new ExtendedVertex(1, new AdjacentVertexInfo[]
+                    new ExtendedVertex(1, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(2,10), 
-                            new AdjacentVertexInfo(4,30), 
-                            new AdjacentVertexInfo(5,100), 
+                            new AdjacentEdge(2,10), 
+                            new AdjacentEdge(4,30), 
+                            new AdjacentEdge(5,100), 
                         }), 
-                    new ExtendedVertex(2, new AdjacentVertexInfo[]
+                    new ExtendedVertex(2, new AdjacentEdge[]
                     {
-                        new AdjacentVertexInfo(3,50), 
+                        new AdjacentEdge(3,50), 
                     }), 
-                    new ExtendedVertex(3, new AdjacentVertexInfo[]
+                    new ExtendedVertex(3, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(5,10), 
+                            new AdjacentEdge(5,10), 
                         }), 
-                    new ExtendedVertex(4, new AdjacentVertexInfo[]
+                    new ExtendedVertex(4, new AdjacentEdge[]
                     {
-                        new AdjacentVertexInfo(3,20), 
-                        new AdjacentVertexInfo(5,50), 
+                        new AdjacentEdge(3,20), 
+                        new AdjacentEdge(5,50), 
                     }), 
-                    new ExtendedVertex(5, new AdjacentVertexInfo[0]), 
+                    new ExtendedVertex(5, new AdjacentEdge[0]), 
                 };
 
             var alg = new DijkstraAlgorithm(vertices);
@@ -48,33 +49,33 @@ namespace MinPathConsole
         {
             var vertices = new ExtendedVertex[]
                 {
-                    new ExtendedVertex(1, new AdjacentVertexInfo[]
+                    new ExtendedVertex(1, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(2,50), 
-                            new AdjacentVertexInfo(3,10), 
-                            new AdjacentVertexInfo(5,45), 
+                            new AdjacentEdge(2,50), 
+                            new AdjacentEdge(3,10), 
+                            new AdjacentEdge(5,45), 
                         }), 
-                    new ExtendedVertex(2, new AdjacentVertexInfo[]
+                    new ExtendedVertex(2, new AdjacentEdge[]
                     {
-                        new AdjacentVertexInfo(5,10), 
+                        new AdjacentEdge(5,10), 
                     }), 
-                    new ExtendedVertex(3, new AdjacentVertexInfo[]
+                    new ExtendedVertex(3, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(1,20), 
-                            new AdjacentVertexInfo(4,15), 
+                            new AdjacentEdge(1,20), 
+                            new AdjacentEdge(4,15), 
                         }), 
-                    new ExtendedVertex(4, new AdjacentVertexInfo[]
+                    new ExtendedVertex(4, new AdjacentEdge[]
                     {
-                        new AdjacentVertexInfo(2,20), 
-                        new AdjacentVertexInfo(5,35), 
+                        new AdjacentEdge(2,20), 
+                        new AdjacentEdge(5,35), 
                     }), 
-                    new ExtendedVertex(5, new AdjacentVertexInfo[]
+                    new ExtendedVertex(5, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(4,30), 
+                            new AdjacentEdge(4,30), 
                         }), 
-                    new ExtendedVertex(6, new AdjacentVertexInfo[]
+                    new ExtendedVertex(6, new AdjacentEdge[]
                         {
-                            new AdjacentVertexInfo(4,3), 
+                            new AdjacentEdge(4,3), 
                         }), 
                 };
 
