@@ -13,7 +13,7 @@ namespace AlgClass.Tests
     public class MaxSpaceClusteringTests
     {
         [Test]
-        public void Case1()
+        public void Assignment1_Case1()
         {
             var vertices = new ExtendedVertex[]
                 {
@@ -72,7 +72,7 @@ namespace AlgClass.Tests
         }
 
         [Test]
-        public void Case2()
+        public void Assignment1_Case2()
         {
             var vertices = Enumerable.Range(1, 10).Select(x => new ExtendedVertex((uint)x)).ToArray();
 
@@ -137,6 +137,52 @@ namespace AlgClass.Tests
         {
             vertices[left - 1].AddAdjacenEdge(new AdjacentEdge(right, weight));
             vertices[right - 1].AddAdjacenEdge(new AdjacentEdge(left, weight));
+        }
+
+        [Test]
+        public void Assignment2_Case1()
+        {
+            var vertices = new Dictionary<string, Vertex>(10);
+
+            AddDictionaryEdge(vertices, "0 1 1 0 0 1 1 1");
+            AddDictionaryEdge(vertices, "1 1 0 0 1 0 1 1");
+            AddDictionaryEdge(vertices, "1 0 1 1 1 0 0 1");
+            AddDictionaryEdge(vertices, "1 1 1 1 0 0 1 0");
+            AddDictionaryEdge(vertices, "0 0 1 1 0 0 1 1");
+            AddDictionaryEdge(vertices, "0 0 0 1 1 0 1 1");
+            AddDictionaryEdge(vertices, "1 1 0 0 1 1 1 1");
+            AddDictionaryEdge(vertices, "1 0 1 1 1 1 1 0");
+            AddDictionaryEdge(vertices, "1 0 0 0 0 1 1 0");
+            AddDictionaryEdge(vertices, "0 1 0 0 0 0 1 1");
+
+            var maxSpaceClustering = new MaxSpaceClustering();
+            Assert.AreEqual(6, maxSpaceClustering.CalcClusterings(vertices));
+        }
+
+        private static void AddDictionaryEdge(Dictionary<string, Vertex> vertices, string key)
+        {
+            vertices.Add(key.Replace(" ", string.Empty), new Vertex((uint)vertices.Count + 1));
+        }
+
+        [Test]
+        public void GetEdgeByOne_2bits()
+        {
+            var result = MaxSpaceClustering.GetEdgeByOne("10").ToArray();
+
+            Assert.AreEqual(2, result.Length);
+            Assert.AreEqual("00", result[0]);
+            Assert.AreEqual("11", result[1]);
+        }
+
+        [Test]
+        public void GetEdgeByTwo_3bits()
+        {
+            var result = MaxSpaceClustering.GetEdgeByTwo("100").ToArray();
+
+            Assert.AreEqual(3, result.Length);
+            Assert.AreEqual("010", result[0]);
+            Assert.AreEqual("001", result[1]);
+            Assert.AreEqual("111", result[2]);
         }
     }
 }

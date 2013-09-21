@@ -50,6 +50,7 @@
     <Compile Include="GreedyAlgs\OrderSchedulerBase.cs" />
     <Compile Include="GreedyAlgs\PrimMST.cs" />
     <Compile Include="MedianMaintenenceAlg.cs" />
+    <Compile Include="StringExtensions.cs" />
     <Compile Include="Tests\DecreaseRatioSchedulerTests.cs" />
     <Compile Include="Tests\MaxSpaceClusteringTests.cs" />
     <Compile Include="Tests\MedianMaintenenceAlgTests.cs" />

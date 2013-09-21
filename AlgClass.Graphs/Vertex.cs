@@ -15,6 +15,10 @@ namespace AlgClass.Graphs
 
         private readonly uint[] _adjacentVertices;
 
+        public Vertex(uint id):this(id, null)
+        {
+        }
+
         public Vertex(uint id, uint[] adjacentVertices)
         {
             Id = id;

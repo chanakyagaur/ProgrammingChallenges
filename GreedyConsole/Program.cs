@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,11 @@ namespace GreedyConsole
                 if (string.Equals(alg, "clustering", StringComparison.OrdinalIgnoreCase))
                 {
                     MaxSpaceClustering(args[1]);
+                }
+
+                if (string.Equals(alg, "hamming", StringComparison.OrdinalIgnoreCase))
+                {
+                    CalcClusterings(args[1]);
                 }
             }
 
@@ -77,6 +83,34 @@ namespace GreedyConsole
             var maxSpaceClustering = new MaxSpaceClustering();
 
             Console.WriteLine("maximum spacing of a 4-clustering: {0}", maxSpaceClustering.CalcMaxSpacing(vertices, 4));
+        }
+
+        private static void CalcClusterings(string filePath)
+        {
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            var lines = File.ReadAllLines(filePath);
+            int verticesCount = int.Parse(lines[0].Split(' ').First());
+            var vertices = new Dictionary<string, Vertex>(verticesCount);
+            
+            foreach (var line in lines.Skip(1))
+            {
+                AddDictionaryEdge(vertices, line);
+            }
+
+            var maxSpaceClustering = new MaxSpaceClustering();
+
+            var result = maxSpaceClustering.CalcClusterings(vertices);
+
+            stopWatch.Stop();
+
+            Console.WriteLine("the largest value of k such that there is a k-clustering with spacing at least 3: {0}, elapsed: {1} ms", result, stopWatch.ElapsedMilliseconds);
+        }
+
+        private static void AddDictionaryEdge(Dictionary<string, Vertex> vertices, string key)
+        {
+            vertices[key.Replace(" ", string.Empty)] = new Vertex((uint)vertices.Count + 1);
         }
 
         private static void ScheduleProblem(string fileName)
