@@ -22,8 +22,8 @@ namespace MinCutConsole
                     while (!reader.EndOfStream)
                     {
                         var verticeArray = reader.ReadLine().Split(new[] {' ', '\t'}, StringSplitOptions.RemoveEmptyEntries);
-                        vertices.Add(new Vertex(uint.Parse(verticeArray[0]),
-                                                 verticeArray.Skip(1).Select(uint.Parse).ToArray()));
+                        vertices.Add(new Vertex(int.Parse(verticeArray[0]),
+                                                 verticeArray.Skip(1).Select(int.Parse).ToArray()));
                     }
                 }
                 vertices.Sort();

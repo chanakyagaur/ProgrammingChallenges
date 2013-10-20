@@ -12,15 +12,15 @@ namespace AlgClass.GreedyAlgs
         public decimal CalcMSTLength(ExtendedVertex[] vertices)
         {
             var startVertex = new Random().Next(1, vertices.Length);
-            var mst = new HashSet<uint> {(uint)startVertex};
+            var mst = new HashSet<int> {startVertex};
             decimal mstLength = 0;
             while (mst.Count < vertices.Length)
             {
                 //select min edge
                 //foreach edge with one vertex in mst and another not select min
                 decimal minWeight = decimal.MaxValue;
-                uint mstVetrexIndex = uint.MaxValue;
-                foreach (uint vertexIndex in mst)
+                int mstVetrexIndex = int.MaxValue;
+                foreach (int vertexIndex in mst)
                 {
                     foreach (AdjacentEdge edge in vertices[vertexIndex - 1].AdjacentVertices)
                     {

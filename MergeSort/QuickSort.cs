@@ -68,10 +68,8 @@ namespace MergeSort
             {
                 case PivotStrategy.First:
                     return startIndex;
-                    break;
                 case PivotStrategy.Last:
                     return endIndex;
-                    break;
                 case PivotStrategy.MedianOfTrhee:
                     {
                         int arrayLength = endIndex - startIndex + 1;

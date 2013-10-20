@@ -46,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtendedVertex.cs" />
-    <Compile Include="KosarajuAlgorithm.cs" />
-    <Compile Include="KosarajuAlgorithmTests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

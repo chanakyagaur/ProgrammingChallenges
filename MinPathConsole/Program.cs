@@ -22,11 +22,11 @@ namespace MinPathConsole
             var vertices = nodesEnumerable.Select(node => node.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries))
                                .Select(nodeArray =>
                                    {
-                                       uint nodeId = uint.Parse(nodeArray[0]);
+                                       int nodeId = int.Parse(nodeArray[0]);
                                        var adjacentList = new List<AdjacentEdge>();
                                        for (int i = 1; i < nodeArray.Length; i +=2)
                                        {
-                                           adjacentList.Add(new AdjacentEdge(uint.Parse(nodeArray[i]), int.Parse(nodeArray[i+1])));
+                                           adjacentList.Add(new AdjacentEdge(int.Parse(nodeArray[i]), int.Parse(nodeArray[i+1])));
                                        }
                                        return new ExtendedVertex(nodeId, adjacentList.ToArray());
                                    })            

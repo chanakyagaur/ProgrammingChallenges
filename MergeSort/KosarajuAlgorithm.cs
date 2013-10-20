@@ -5,27 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using AlgClass.Graphs;
 
-namespace SCCConsole
+namespace AlgClass
 {
-    class KosarajuAlgorithm
+    public class KosarajuAlgorithm 
     {
-        private readonly ExtendedVertex[] _vertices;
+        private KosarajuVertex[] _vertices;
         private int _exploredVerticesCount;
-        private ExtendedVertex _currentSource = null;
-        private readonly Stack<ExtendedVertex> _searchStack; 
+        private KosarajuVertex _currentSource = null;
+        private readonly Stack<KosarajuVertex> _searchStack;
 
-        public KosarajuAlgorithm(ExtendedVertex[] vertices)
-        {
-            _vertices = vertices;
-            _searchStack = new Stack<ExtendedVertex>(); 
+        public KosarajuAlgorithm()
+        {            
+            _searchStack = new Stack<KosarajuVertex>(); 
         }
 
-        public int[] CountStronglyConnectedComponentes()
+        public int[] CountStronglyConnectedComponentes(KosarajuVertex[] vertices)
         {
-            Func<int, ExtendedVertex> selectByIndex = index => _vertices[index];
-            Func<int, ExtendedVertex> selectByFinishingTime = index => _vertices[index].FinishTimeVertex;
-            Func<ExtendedVertex, IEnumerable<uint>> reversedNodeSelector = v => v.ReversedAdjacentVertices;
-            Func<ExtendedVertex, IEnumerable<uint>> nodeSelector = v => v.AdjacentVertices;
+            _vertices = vertices;
+            Func<int, KosarajuVertex> selectByIndex = index => _vertices[index];
+            Func<int, KosarajuVertex> selectByFinishingTime = index => _vertices[index].FinishTimeVertex;
+            Func<KosarajuVertex, IEnumerable<int>> reversedNodeSelector = v => v.ReversedAdjacentVertices;
+            Func<KosarajuVertex, IEnumerable<int>> nodeSelector = v => v.AdjacentVertices;
 
             _exploredVerticesCount = 0;
             DepthFirstSearchLoop(selectByIndex, reversedNodeSelector);
@@ -42,7 +42,7 @@ namespace SCCConsole
         }
 
 
-        private void DepthFirstSearchLoop(Func<int, ExtendedVertex> nodeSelector, Func<ExtendedVertex, IEnumerable<uint>> adjacentNodesSelector)
+        private void DepthFirstSearchLoop(Func<int, KosarajuVertex> nodeSelector, Func<KosarajuVertex, IEnumerable<int>> adjacentNodesSelector)
         {
             Array.ForEach(_vertices, v =>
                 {
@@ -62,7 +62,7 @@ namespace SCCConsole
             }
         }
 
-        private void DepthFirstSearch(Func<ExtendedVertex, IEnumerable<uint>> adjacentNodesSelector)
+        private void DepthFirstSearch(Func<KosarajuVertex, IEnumerable<int>> adjacentNodesSelector)
         {
             while (_searchStack.Any())
             {

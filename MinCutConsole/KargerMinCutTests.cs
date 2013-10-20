@@ -17,10 +17,10 @@ namespace MinCutConsole
         {
             var vertices = new Vertex[]
                 {
-                    new Vertex(1, new uint[] {2, 4, 3}),
-                    new Vertex(2, new uint[] {1, 3}),
-                    new Vertex(3, new uint[] {1, 2}),
-                    new Vertex(4, new uint[] {1})
+                    new Vertex(1, new [] {2, 4, 3}),
+                    new Vertex(2, new [] {1, 3}),
+                    new Vertex(3, new [] {1, 2}),
+                    new Vertex(4, new [] {1})
                 };
             var alg = new KargerMinCut(vertices);
             var minCut = Enumerable.Range(1, 32).Select(i => alg.CalculateMinCut()).Min();
@@ -32,14 +32,14 @@ namespace MinCutConsole
         {
             var vertices = new Vertex[]
             {
-                    new Vertex(1, new uint[] {5, 2, 6}),
-                    new Vertex(2, new uint[] {1, 5, 6, 3}),
-                    new Vertex(3, new uint[] {2, 7, 4, 8}),
-                    new Vertex(4, new uint[] {3, 7, 8}),
-                    new Vertex(5, new uint[] {1, 2, 6}),
-                    new Vertex(6, new uint[] {1, 2, 5, 7}),
-                    new Vertex(7, new uint[] {6, 3, 4, 8}),
-                    new Vertex(8, new uint[] {3, 4, 7}),
+                    new Vertex(1, new [] {5, 2, 6}),
+                    new Vertex(2, new [] {1, 5, 6, 3}),
+                    new Vertex(3, new [] {2, 7, 4, 8}),
+                    new Vertex(4, new [] {3, 7, 8}),
+                    new Vertex(5, new [] {1, 2, 6}),
+                    new Vertex(6, new [] {1, 2, 5, 7}),
+                    new Vertex(7, new [] {6, 3, 4, 8}),
+                    new Vertex(8, new [] {3, 4, 7}),
                 };
 
             var alg = new KargerMinCut(vertices);

@@ -8,13 +8,13 @@ namespace AlgClass.Graphs
 {
     public class Edge
     {
-        public Edge(uint head, uint tail)
+        public Edge(int head, int tail)
         {
             Head = head;
             Tail = tail;
         }
 
-        public uint Head { get; private set; }
-        public uint Tail { get; private set; }
+        public int Head { get; private set; }
+        public int Tail { get; private set; }
     }
 }

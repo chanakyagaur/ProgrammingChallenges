@@ -54,8 +54,8 @@ namespace MinCutConsole
                 randomRange--;
             }
             // calculate min cut for vertice list            
-            uint firstVerticeRootId = UnionFind.FindRoot(_vertices.First()).Id;
-            var hashSet = new HashSet<uint>(_vertices.Where(v => UnionFind.FindRoot(v).Id == firstVerticeRootId).Select(v => v.Id));
+            int firstVerticeRootId = UnionFind.FindRoot(_vertices.First()).Id;
+            var hashSet = new HashSet<int>(_vertices.Where(v => UnionFind.FindRoot(v).Id == firstVerticeRootId).Select(v => v.Id));
             var minCut = _edges.Count(e => hashSet.Contains(e.Head) && !hashSet.Contains(e.Tail));
             return minCut;
         }        

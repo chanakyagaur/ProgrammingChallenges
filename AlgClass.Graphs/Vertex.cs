@@ -13,13 +13,13 @@ namespace AlgClass.Graphs
             return Id.CompareTo(other.Id);
         }
 
-        private readonly uint[] _adjacentVertices;
+        private readonly int[] _adjacentVertices;
 
-        public Vertex(uint id):this(id, null)
+        public Vertex(int id):this(id, null)
         {
         }
 
-        public Vertex(uint id, uint[] adjacentVertices)
+        public Vertex(int id, int[] adjacentVertices)
         {
             Id = id;
             _adjacentVertices = adjacentVertices;
@@ -27,7 +27,7 @@ namespace AlgClass.Graphs
             Rank = 0;
         }
 
-        public uint[] AdjacentVertices
+        public int[] AdjacentVertices
         {
             get { return _adjacentVertices; }
         }
@@ -36,6 +36,6 @@ namespace AlgClass.Graphs
         
         public uint Rank { get; set; }
 
-        public uint Id { get; private set; }
+        public int Id { get; private set; }
     }
 }

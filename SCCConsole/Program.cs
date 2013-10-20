@@ -22,11 +22,11 @@ namespace SCCConsole
 
                 var edgesEnumerable = File.ReadLines(filePath);
                 var edges = edgesEnumerable.Select(edge => edge.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries))
-                                   .Select(edgePair => new Tuple<uint,uint>(uint.Parse(edgePair[1]), (uint.Parse(edgePair[0]))))
+                                   .Select(edgePair => new Tuple<int,int>(int.Parse(edgePair[1]), (int.Parse(edgePair[0]))))
                                    .ToArray();
 
-                uint verticesCount = Math.Max(edges.Max(e => e.Item1), edges.Max(e => e.Item2));
-                var vertices = Enumerable.Range(1, (int)verticesCount).Select(nodeId => new ExtendedVertex((uint)nodeId)).ToArray();
+                int verticesCount = Math.Max(edges.Max(e => e.Item1), edges.Max(e => e.Item2));
+                var vertices = Enumerable.Range(1, verticesCount).Select(nodeId => new KosarajuVertex(nodeId)).ToArray();
 
                 edges.ForEach(edge =>
                               {
@@ -38,8 +38,8 @@ namespace SCCConsole
                 var initTime = stopWatch.ElapsedMilliseconds;
                 Console.WriteLine("read and init time={0}", initTime);
                 stopWatch.Restart();
-                var alg = new KosarajuAlgorithm(vertices);
-                var result = alg.CountStronglyConnectedComponentes();
+                var alg = new KosarajuAlgorithm();
+                var result = alg.CountStronglyConnectedComponentes(vertices);
                 stopWatch.Stop();
                 Console.WriteLine("running time = {0}, result={1}", stopWatch.ElapsedMilliseconds, string.Join(",", result.Take(10)));
                 Console.WriteLine("press any key");

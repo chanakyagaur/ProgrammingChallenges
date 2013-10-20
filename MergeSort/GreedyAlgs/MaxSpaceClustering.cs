@@ -96,10 +96,10 @@ namespace AlgClass.GreedyAlgs
             return vertices[minEdge.Item1 - 1].AdjacentVertices.Single(x => x.Vertex == minEdge.Item2).Weigth;
         }
 
-        private Tuple<uint, uint> GetNextMinEdge(ExtendedVertex[] vertices)
+        private Tuple<int, int> GetNextMinEdge(ExtendedVertex[] vertices)
         {
             decimal minWeight = decimal.MaxValue;
-            Tuple<uint, uint> nextMinEdge = null;
+            Tuple<int, int> nextMinEdge = null;
             foreach (var vertex in vertices)
             {
                 foreach (AdjacentEdge edge in vertex.AdjacentVertices)
@@ -109,7 +109,7 @@ namespace AlgClass.GreedyAlgs
                         if (edge.Weigth < minWeight)
                         {
                             minWeight = edge.Weigth;
-                            nextMinEdge = new Tuple<uint, uint>(vertex.Id, edge.Vertex);
+                            nextMinEdge = new Tuple<int, int>(vertex.Id, edge.Vertex);
                         }
                     }
                 }

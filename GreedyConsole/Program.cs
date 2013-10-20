@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AlgClass.DynamicProgramming;
 using AlgClass.Graphs;
 using AlgClass.GreedyAlgs;
 
@@ -37,23 +38,44 @@ namespace GreedyConsole
                 {
                     CalcClusterings(args[1]);
                 }
+
+                if (string.Equals(alg, "tsp", StringComparison.OrdinalIgnoreCase))
+                {
+                    CalcTSP(args[1]);
+                }
             }
 
             Console.WriteLine("press any key");
             Console.ReadKey();
         }
 
+        private static void CalcTSP(string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+            int verticesCount = int.Parse(lines[0].Split(' ').First());
+            var input = new List<Tuple<float, float>>(verticesCount);
+            foreach (var line in lines.Skip(1))
+            {
+                var node = line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                input.Add(new Tuple<float, float>(float.Parse(node.First()), float.Parse(node.Skip(1).First())));
+            }
+
+            var tsp = new TSPAlg();
+
+            Console.WriteLine("tsp: {0}", tsp.CalcMinCostTour(input.ToArray()));
+        }
+
         private static void PrimMST(string filePath)
         {
             var lines = File.ReadAllLines(filePath);
             int verticesCount = int.Parse(lines[0].Split(' ').First());
-            var vertices = Enumerable.Range(1, verticesCount).Select(x => new ExtendedVertex((uint)x)).ToArray();
+            var vertices = Enumerable.Range(1, verticesCount).Select(x => new ExtendedVertex(x)).ToArray();
             
             foreach (var line in lines.Skip(1))
             {
                 var node = line.Split(new[] {' ', '\t', ','}, StringSplitOptions.RemoveEmptyEntries);
-                var left = uint.Parse(node[0]);
-                var right = uint.Parse(node[1]);
+                var left = int.Parse(node[0]);
+                var right = int.Parse(node[1]);
                 var weight = int.Parse(node[2]);
                 vertices[left - 1].AddAdjacenEdge(new AdjacentEdge(right, weight));
                 vertices[right - 1].AddAdjacenEdge(new AdjacentEdge(left, weight));
@@ -68,13 +90,13 @@ namespace GreedyConsole
         {
             var lines = File.ReadAllLines(filePath);
             int verticesCount = int.Parse(lines[0].Split(' ').First());
-            var vertices = Enumerable.Range(1, verticesCount).Select(x => new ExtendedVertex((uint)x)).ToArray();
+            var vertices = Enumerable.Range(1, verticesCount).Select(x => new ExtendedVertex(x)).ToArray();
 
             foreach (var line in lines.Skip(1))
             {
                 var node = line.Split(new[] { ' ', '\t', ',' }, StringSplitOptions.RemoveEmptyEntries);
-                var left = uint.Parse(node[0]);
-                var right = uint.Parse(node[1]);
+                var left = int.Parse(node[0]);
+                var right = int.Parse(node[1]);
                 var weight = int.Parse(node[2]);
                 vertices[left - 1].AddAdjacenEdge(new AdjacentEdge(right, weight));
                 vertices[right - 1].AddAdjacenEdge(new AdjacentEdge(left, weight));
@@ -110,7 +132,7 @@ namespace GreedyConsole
 
         private static void AddDictionaryEdge(Dictionary<string, Vertex> vertices, string key)
         {
-            vertices[key.Replace(" ", string.Empty)] = new Vertex((uint)vertices.Count + 1);
+            vertices[key.Replace(" ", string.Empty)] = new Vertex(vertices.Count + 1);
         }
 
         private static void ScheduleProblem(string fileName)

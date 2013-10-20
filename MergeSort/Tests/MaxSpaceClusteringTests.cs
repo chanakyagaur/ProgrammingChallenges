@@ -74,7 +74,7 @@ namespace AlgClass.Tests
         [Test]
         public void Assignment1_Case2()
         {
-            var vertices = Enumerable.Range(1, 10).Select(x => new ExtendedVertex((uint)x)).ToArray();
+            var vertices = Enumerable.Range(1, 10).Select(x => new ExtendedVertex(x)).ToArray();
 
             AddEdge(vertices, 1, 2, 91);
             AddEdge(vertices, 1, 3, 6);
@@ -133,7 +133,7 @@ namespace AlgClass.Tests
             Assert.AreEqual(9, maxSpaceClustering.CalcMaxSpacing(vertices, 4));
         }
 
-        private static void AddEdge(ExtendedVertex[] vertices, uint left, uint right, int weight)
+        private static void AddEdge(ExtendedVertex[] vertices, int left, int right, int weight)
         {
             vertices[left - 1].AddAdjacenEdge(new AdjacentEdge(right, weight));
             vertices[right - 1].AddAdjacenEdge(new AdjacentEdge(left, weight));
@@ -161,7 +161,7 @@ namespace AlgClass.Tests
 
         private static void AddDictionaryEdge(Dictionary<string, Vertex> vertices, string key)
         {
-            vertices.Add(key.Replace(" ", string.Empty), new Vertex((uint)vertices.Count + 1));
+            vertices.Add(key.Replace(" ", string.Empty), new Vertex(vertices.Count + 1));
         }
 
         [Test]

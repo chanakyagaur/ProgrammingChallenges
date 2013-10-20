@@ -12,13 +12,13 @@ namespace AlgClass.Graphs
     {
         private readonly List<AdjacentEdge> _adjacentVertices;
 
-        public ExtendedVertex(uint id, IEnumerable<AdjacentEdge> adjacentVertices)
+        public ExtendedVertex(int id, IEnumerable<AdjacentEdge> adjacentVertices)
             : base(id, null)
         {
             _adjacentVertices = adjacentVertices.ToList();
         }
 
-        public ExtendedVertex(uint id):base(id, null)
+        public ExtendedVertex(int id):base(id, null)
         {  
             _adjacentVertices = new List<AdjacentEdge>();
         }

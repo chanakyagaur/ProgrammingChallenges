@@ -8,12 +8,12 @@ namespace AlgClass.Graphs
 {
     public class AdjacentEdge
     {
-        public AdjacentEdge(uint vertex, int weight)
+        public AdjacentEdge(int vertex, int weight)
         {
             Vertex = vertex;
             Weigth = weight;
         }
-        public uint Vertex { get; private set; }
+        public int Vertex { get; private set; }
         public int Weigth { get; private set; }
     }
 }
