@@ -10,6 +10,7 @@ namespace AlgClass
     public class TwoSetAlg
     {
         private readonly KosarajuAlgorithm kosarajuSCC;
+        private int _verticesCount;
         public TwoSetAlg()
         {
                 kosarajuSCC = new KosarajuAlgorithm();
@@ -17,6 +18,8 @@ namespace AlgClass
 
         public bool IsSatisfiable(int verticesCount, Tuple<int, int>[] clauses)
         {
+            _verticesCount = verticesCount;
+
             var vertices = Enumerable.Range(0, 2 * verticesCount).Select(nodeId => new KosarajuVertex(nodeId)).ToArray();
 
             clauses.ForEach(edge =>
@@ -36,17 +39,17 @@ namespace AlgClass
             return true;
         }
 
-        private static void AddEdge(KosarajuVertex[] vertices, int firstVertexId, int secondVertexId)
+        private void AddEdge(KosarajuVertex[] vertices, int firstVertexId, int secondVertexId)
         {
             vertices[GetIndexById(firstVertexId)].AdjacentVertices.Add(GetIndexById(secondVertexId) + 1);
             vertices[GetIndexById(secondVertexId)].ReversedAdjacentVertices.Add(GetIndexById(firstVertexId) + 1);
         }
 
-        private static int GetIndexById(int vertexId)
+        private int GetIndexById(int vertexId)
         {
             if (vertexId < 0)
             {
-                return -vertexId * 2 - 1;
+                return _verticesCount - vertexId - 1;
             }
 
             return vertexId - 1;

@@ -61,7 +61,7 @@
     <Compile Include="Tests\DecreaseOrderSchedulerTests.cs" />
     <Compile Include="Tests\PrimMSTTests.cs" />
     <Compile Include="Tests\TSPAlgTests.cs" />
-    <Compile Include="Tests\TwoSetAlgTests.cs" />
+    <Compile Include="Tests\TwoSatAlgTests.cs" />
     <Compile Include="TwoSetAlg.cs" />
     <Compile Include="TwoSumAlg.cs" />
     <Compile Include="ArrayExtensions.cs" />

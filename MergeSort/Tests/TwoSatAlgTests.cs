@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace AlgClass.Tests
 {
     [TestFixture]
-    public class TwoSetAlgTests
+    public class TwoSatAlgTests
     {
         [Test]
         public void IsSatisfiable_FourVariables4Clauses_Satisfiable()
