@@ -43,10 +43,33 @@ namespace GreedyConsole
                 {
                     CalcTSP(args[1]);
                 }
+
+                if (string.Equals(alg, "knapsack", StringComparison.OrdinalIgnoreCase))
+                {
+                    CalcKnapsack(args[1]);
+                }
             }
 
             Console.WriteLine("press any key");
             Console.ReadKey();
+        }
+
+        private static void CalcKnapsack(string filePath)
+        {
+            var lines = File.ReadAllLines(filePath);
+            var firstLine = lines[0].Split(' ');
+            int capacity = int.Parse(firstLine.First());
+            int inputCount = int.Parse(firstLine.Skip(1).First());
+            var input = new List<Tuple<int, int>>(inputCount);
+            input.AddRange(lines.Skip(1).Select(
+                line => line.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries))
+                    .Select(node => new Tuple<int, int>(
+                        int.Parse(node.First()), 
+                        int.Parse(node.Skip(1).First()))));
+
+            var knapsackAlg = new KnapsackAlg();
+
+            Console.WriteLine("knapsack: {0}", knapsackAlg.CalcOptimalValue(input.ToArray(), capacity));
         }
 
         private static void CalcTSP(string filePath)

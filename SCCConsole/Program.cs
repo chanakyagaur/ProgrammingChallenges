@@ -69,7 +69,7 @@ namespace SCCConsole
             var initTime = stopWatch.ElapsedMilliseconds;
             Console.WriteLine("read and init time={0}", initTime);
             stopWatch.Restart();
-            var alg = new TwoSetAlg();
+            var alg = new TwoSatAlg();
             var result = alg.IsSatisfiable(int.Parse(clausesEnumerable.First()), clauses);
             stopWatch.Stop();
             Console.WriteLine("running time = {0}, IsSatisfiable={1}", stopWatch.ElapsedMilliseconds, result);

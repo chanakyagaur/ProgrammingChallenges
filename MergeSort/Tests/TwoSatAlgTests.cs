@@ -21,7 +21,7 @@ namespace AlgClass.Tests
                     new Tuple<int, int>(-2, -4),
                 };
 
-            var alg = new TwoSetAlg();
+            var alg = new TwoSatAlg();
             Assert.True(alg.IsSatisfiable(4, clauses));
         }
 
@@ -40,7 +40,7 @@ namespace AlgClass.Tests
                     new Tuple<int, int>(-7, -1),
                 };
 
-            var alg = new TwoSetAlg();
+            var alg = new TwoSatAlg();
             Assert.True(alg.IsSatisfiable(8, clauses));
         }
 
@@ -56,7 +56,7 @@ namespace AlgClass.Tests
                     new Tuple<int, int>(4, 5),
                 };
 
-            var alg = new TwoSetAlg();
+            var alg = new TwoSatAlg();
             Assert.False(alg.IsSatisfiable(5, clauses));
         }
     }

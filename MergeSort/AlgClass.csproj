@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DynamicProgramming\KnapsackAlg.cs" />
     <Compile Include="DynamicProgramming\TSPAlg.cs" />
     <Compile Include="GreedyAlgs\DecreaseRatioScheduler.cs" />
     <Compile Include="GreedyAlgs\Job.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="MedianMaintenenceAlg.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Tests\DecreaseRatioSchedulerTests.cs" />
+    <Compile Include="Tests\KnapsackAlgTests.cs" />
     <Compile Include="Tests\KosarajuAlgorithmTests.cs" />
     <Compile Include="Tests\MaxSpaceClusteringTests.cs" />
     <Compile Include="Tests\MedianMaintenenceAlgTests.cs" />
@@ -62,7 +64,7 @@
     <Compile Include="Tests\PrimMSTTests.cs" />
     <Compile Include="Tests\TSPAlgTests.cs" />
     <Compile Include="Tests\TwoSatAlgTests.cs" />
-    <Compile Include="TwoSetAlg.cs" />
+    <Compile Include="TwoSatAlg.cs" />
     <Compile Include="TwoSumAlg.cs" />
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="EnumerableExtensions.cs" />

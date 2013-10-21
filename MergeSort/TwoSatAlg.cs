@@ -7,14 +7,10 @@ using AlgClass.Graphs;
 
 namespace AlgClass
 {
-    public class TwoSetAlg
+    public class TwoSatAlg
     {
-        private readonly KosarajuAlgorithm kosarajuSCC;
+        private readonly KosarajuAlgorithm kosarajuSCC = new KosarajuAlgorithm();
         private int _verticesCount;
-        public TwoSetAlg()
-        {
-                kosarajuSCC = new KosarajuAlgorithm();
-        }
 
         public bool IsSatisfiable(int verticesCount, Tuple<int, int>[] clauses)
         {
